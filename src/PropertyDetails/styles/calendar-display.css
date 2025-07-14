@@ -1,0 +1,229 @@
+/* Base styles for DayPicker */
+.rdp {
+  padding: 0.75rem; /* p-3 */
+}
+
+/* Responsive month layout */
+.rdp-months {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space-y-4 */
+}
+
+@media (min-width: 640px) {
+  .rdp-months {
+    flex-direction: row;
+    gap: 1rem; /* sm:space-x-4 */
+    margin-top: 0; /* sm:space-y-0 */
+  }
+}
+
+.rdp-month {
+  gap: 1rem; /* space-y-4 */
+}
+
+/* Caption (Month/Year header) */
+.rdp-caption {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.25rem; /* pt-1 */
+  position: relative;
+  align-items: center;
+}
+
+.rdp-caption_label {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+}
+
+/* Navigation buttons */
+.rdp-nav {
+  gap: 0.25rem; /* space-x-1 */
+  display: flex;
+  align-items: center;
+}
+
+.rdp-nav_button {
+  height: 1.75rem; /* h-7 */
+  width: 1.75rem; /* w-7 */
+  background-color: transparent;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  border: 1px solid #d1d5db; /* border border-input */
+  color: #1f2937; /* text-foreground */
+  box-shadow: 0 0 #0000; /* ring-offset-background */
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.rdp-nav_button:hover {
+  opacity: 1;
+  background-color: #f3f4f6; /* hover:bg-accent */
+  color: #1f2937; /* hover:text-accent-foreground */
+}
+
+.rdp-nav_button:focus-visible {
+  outline: 2px solid transparent; /* focus-visible:outline-none */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #ffffff; /* focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 */
+}
+
+.rdp-nav_button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.rdp-nav_button_previous {
+  position: absolute;
+  left: 0.25rem; /* left-1 */
+}
+
+.rdp-nav_button_next {
+  position: absolute;
+  right: 0.25rem; /* right-1 */
+}
+
+/* Table structure */
+.rdp-table {
+  width: 100%;
+  border-collapse: collapse;
+  gap: 0.25rem; /* space-y-1 */
+}
+
+.rdp-head_row {
+  display: flex;
+}
+
+.rdp-head_cell {
+  color: #6b7280; /* text-muted-foreground */
+  border-radius: 0.375rem; /* rounded-md */
+  width: 2.25rem; /* w-9 */
+  font-weight: normal;
+  font-size: 0.8rem; /* text-[0.8rem] */
+  text-align: center;
+}
+
+.rdp-row {
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem; /* mt-2 */
+}
+
+.rdp-cell {
+  height: 2.25rem; /* h-9 */
+  width: 2.25rem; /* w-9 */
+  text-align: center;
+  font-size: 0.875rem; /* text-sm */
+  padding: 0;
+  position: relative;
+}
+
+/* Day styling */
+.rdp-day {
+  height: 2.25rem; /* h-9 */
+  width: 2.25rem; /* w-9 */
+  padding: 0;
+  font-weight: normal;
+  opacity: 1; /* aria-selected:opacity-100 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375rem; /* rounded-md */
+  font-size: 0.875rem; /* text-sm */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.rdp-day:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+  color: #1f2937; /* hover:text-gray-900 */
+}
+
+.rdp-day:focus-visible {
+  outline: 2px solid transparent; /* focus-visible:outline-none */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 4px #ffffff; /* focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 */
+}
+
+/* Selected day */
+.rdp-day_selected {
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: #ffffff; /* text-white */
+}
+
+.rdp-day_selected:hover,
+.rdp-day_selected:focus {
+  background-color: #2563eb; /* hover:bg-blue-600 */
+  color: #ffffff; /* hover:text-white */
+}
+
+/* Today's day */
+.rdp-day_today {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  color: #1f2937; /* text-gray-900 */
+}
+
+/* Days outside current month */
+.rdp-day_outside {
+  color: #9ca3af; /* text-gray-400 */
+  opacity: 0.5;
+}
+
+.rdp-day_outside.rdp-day_selected {
+  background-color: rgba(243, 244, 246, 0.5); /* aria-selected:bg-accent/50 */
+  color: #9ca3af; /* aria-selected:text-muted-foreground */
+  opacity: 0.3;
+}
+
+/* Disabled days */
+.rdp-day_disabled {
+  color: #9ca3af; /* text-muted-foreground */
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Range selection */
+.rdp-cell:has(.rdp-day_range_end) {
+  border-top-right-radius: 0.375rem; /* rounded-r-md */
+  border-bottom-right-radius: 0.375rem; /* rounded-r-md */
+}
+
+.rdp-cell:has(.rdp-day_range_start) {
+  border-top-left-radius: 0.375rem; /* rounded-l-md */
+  border-bottom-left-radius: 0.375rem; /* rounded-l-md */
+}
+
+.rdp-cell:has(.rdp-day_selected) {
+  background-color: #f3f4f6; /* bg-accent */
+}
+
+.rdp-cell:first-child:has(.rdp-day_selected) {
+  border-top-left-radius: 0.375rem; /* first:[&:has([aria-selected])]:rounded-l-md */
+  border-bottom-left-radius: 0.375rem; /* first:[&:has([aria-selected])]:rounded-l-md */
+}
+
+.rdp-cell:last-child:has(.rdp-day_selected) {
+  border-top-right-radius: 0.375rem; /* last:[&:has([aria-selected])]:rounded-r-md */
+  border-bottom-right-radius: 0.375rem; /* last:[&:has([aria-selected])]:rounded-r-md */
+}
+
+.rdp-day_range_middle {
+  background-color: #f3f4f6; /* aria-selected:bg-accent */
+  color: #1f2937; /* aria-selected:text-accent-foreground */
+}
+
+/* Hidden days */
+.rdp-day_hidden {
+  visibility: hidden;
+}

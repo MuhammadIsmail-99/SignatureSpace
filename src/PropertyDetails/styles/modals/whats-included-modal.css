@@ -1,0 +1,35 @@
+.whats-included-modal-content {
+  padding: 1rem; /* p-4 */
+  display: grid;
+  gap: 1.5rem; /* gap-6 */
+}
+
+.whats-included-section-title {
+  font-weight: 600; /* font-semibold */
+  font-size: 1.125rem; /* text-lg */
+}
+
+.whats-included-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+  gap: 1rem; /* gap-4 */
+}
+
+@media (min-width: 640px) {
+  .whats-included-features-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* sm:grid-cols-3 */
+  }
+}
+
+.whats-included-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+  font-size: 0.875rem; /* text-sm */
+}
+
+.whats-included-feature-icon {
+  width: 1.25rem; /* w-5 */
+  height: 1.25rem; /* h-5 */
+  color: #6b7280; /* text-muted-foreground */
+}
